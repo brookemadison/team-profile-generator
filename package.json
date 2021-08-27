@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "14.17.5",
+  "description": "A webpage that displays team members emails and github profiles",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brookemadison/team-profile-generator.git"
+  },
+  "keywords": [
+    "team",
+    "generator"
+  ],
+  "author": "Brooke Madison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brookemadison/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/brookemadison/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  }
+}
