@@ -1,13 +1,12 @@
 const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern.js');
-const Manager = require('./lib/Manager.js');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 const fs = require("fs");
-const generateHTML = require('./dist/team.html')
+const generateHtml = require('./src/generateHtml.js')
 
-//prompts user for employee info 
+//prompts user for employee's info 
 // inquirer means you need to download and add it to your project using the command npm install inquirer
 const inquirer = require('inquirer');
-inquirer
 
 const managerQuestions = [
 
@@ -74,3 +73,45 @@ const internQuestions = [
         name: "intern-school"
     }
 ]
+
+
+//Creates a function to write team.html file
+const promptProject = () => inquirer.prompt(managerQuestions);
+
+const writeToFile = (pathName, fileName, data) => {
+    if (!fs.existsSync(pathName))
+    {
+        fs.mkdirSync(pathName);
+    }
+    return new Promise((resolve, reject) => {
+        fs.writeFile(pathName + "/" + fileName, data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'File Created!'
+            });
+        });
+    });
+};
+
+//Creates a function to initialize app
+function init() { promptProject()
+    .then(projectData => {
+        return generateHtml(projectData);
+    })
+    .then( teamHTML => {
+        return writeToFile("./dist", "team.html", teamHTML );
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse.message);
+    })
+    .catch(err => {
+        console.log(err);
+    });}
+
+
+// Function call to initialize app
+init();
