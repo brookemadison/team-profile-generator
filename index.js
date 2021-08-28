@@ -1,10 +1,10 @@
-const Engineer = require('../lib/Engineer');
-const Intern = require('../lib/Intern');
-const Manager = require('../lib/Manager')
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern.js');
+const Manager = require('./lib/Manager.js');
 const fs = require("fs");
 const generateHTML = require('./dist/team.html')
 
-//prompts user for name
+//prompts user for employee info 
 // inquirer means you need to download and add it to your project using the command npm install inquirer
 const inquirer = require('inquirer');
 inquirer
@@ -70,7 +70,7 @@ const internQuestions = [
     },
     {
         type: "input",
-        message: "What is their emplyee id number?",
-        name: "engineer-id"
+        message: "What is the name of their school?",
+        name: "intern-school"
     }
 ]
