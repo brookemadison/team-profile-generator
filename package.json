@@ -25,5 +25,8 @@
   "homepage": "https://github.com/brookemadison/team-profile-generator#readme",
   "devDependencies": {
     "jest": "^27.1.0"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2"
   }
 }
