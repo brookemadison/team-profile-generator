@@ -1,13 +1,12 @@
+// inquirer means you need to download and add it to your project using the command npm install inquirer
+const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const fs = require("fs");
-const generateHtml = require('./src/generateHtml.js')
+const generateHtml = require('./src/generateHtml');
 
 //prompts user for employee's info 
-// inquirer means you need to download and add it to your project using the command npm install inquirer
-const inquirer = require('inquirer');
-
 const managerQuestions = [
 
     {
@@ -103,7 +102,7 @@ function init() { promptProject()
         return generateHtml(projectData);
     })
     .then( teamHTML => {
-        return writeToFile("./dist", "team.html", teamHTML );
+        return writeToFile("./dist", "team.html", teamhtml );
     })
     .then(writeFileResponse => {
         console.log(writeFileResponse.message);
